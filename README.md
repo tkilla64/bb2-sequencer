@@ -54,4 +54,4 @@ Width:  10HP
 Depth:  30 mm
 
 ### YouTube video
-TBA
+[Eurorack DIY: Bass Buddy II - Bigger and Better](https://youtu.be/oqoJV0XfK5c)
