@@ -122,3 +122,65 @@ void led_cycle_matrix(void) {
 void led_set_status(int led_id, uint8_t led_mode) {
     led_pairs[led_id].led_mode = led_mode;
 }
+
+void led_post_cycle(int delay) {
+    for (int cyc=0 ; cyc < post_last_cycle ; cyc++) {
+        switch (cyc) {
+            case track2_on:
+                led_set_status(LED_TRACK2, green);
+                break;
+
+            case track1_on:
+                led_set_status(LED_TRACK1, red);
+                break;
+
+            case edit_green:
+                led_set_status(LED_EDIT, green);
+                break;
+
+            case step_green:
+                led_set_status(LED_STEP, green);
+                break;
+
+            case pattern_green:
+                led_set_status(LED_PATTERN, green);
+                break;
+
+            case edit_red:
+                led_set_status(LED_EDIT, red);
+                break;
+
+            case step_red:
+                led_set_status(LED_STEP, red);
+                break;
+
+            case pattern_red:
+                led_set_status(LED_PATTERN, red);
+                break;
+
+           case track2_off:
+                led_set_status(LED_TRACK2, off);
+                break;
+
+            case track1_off:
+                led_set_status(LED_TRACK1, off);
+                break;
+
+            case step_off:
+                led_set_status(LED_STEP, off);
+                break;
+
+            case edit_off:
+                led_set_status(LED_EDIT, off);
+                break;
+
+            case pattern_off:
+                led_set_status(LED_PATTERN, off);
+                break;
+
+            default:
+            break;
+        }
+        sleep_ms(delay/post_last_cycle);
+    }
+}

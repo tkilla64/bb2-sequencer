@@ -24,6 +24,7 @@
  * 
  * BUGS: 
  *   * make sure pattern does not change during edit (turn off link)
+ *   * not possible to bail out of CHAIN page with PATTERN or STEP
  *   * fix jitter in BPM calculation
  */
 
@@ -47,9 +48,9 @@
 
 // Common definitions
 #define SW_VER_MAJOR    1U      // software version 0-9
-#define SW_VER_MINOR    21U     // software version 0-99
+#define SW_VER_MINOR    22U     // software version 0-99
      
-#define STARTUP_TIME    1000U   // ms for startup splash
+#define STARTUP_TIME    3000U   // ms for startup splash and LED POST cycle
 #define GATE_OFF_MS     30      // Gate off time
 
 #define SLIDE_STEP_MS   4       // time between each slide step
@@ -562,7 +563,7 @@ int main()
     //
     // startup splash screen; show firmware version
     display_version(SW_VER_MAJOR, SW_VER_MINOR);
-    sleep_ms(STARTUP_TIME);
+    led_post_cycle(STARTUP_TIME);
 
     /*
      * MAIN LOOP:

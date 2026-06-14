@@ -34,6 +34,24 @@
 #define LED_CYCLE       4   // time between LED cycles (ms)
 #define LED_RAMP_STEP   50  // rampdown steps per cycle
 
+// LED Power On Self Test pattern
+enum led_post_mode {
+    track2_on,
+    track1_on,
+    edit_green,
+    step_green,
+    pattern_green,
+    edit_red,
+    step_red,
+    pattern_red,
+    track2_off,
+    track1_off,
+    edit_off,
+    step_off,
+    pattern_off,
+    post_last_cycle
+};
+
 // Button LED states
 enum bi_led_mode {      // red and green LEDs AAK
     off,                // both off
@@ -58,6 +76,14 @@ typedef struct led_matrix
     int8_t  direction;  // 0=no ramp, 1=ramp up, -1=ramp down
     int8_t  led_cathode_pin;    // GPIO pin for LED cathode
 } led_matrix_t;
+
+/**
+	@brief run LED POST cycle
+
+	@param[in] delay    : Total delay in ms
+    
+*/
+void led_post_cycle(int delay);
 
 /**
 	@brief init LED GPIOs
