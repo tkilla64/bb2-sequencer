@@ -48,7 +48,7 @@
 
 // Common definitions
 #define SW_VER_MAJOR    1U      // software version 0-9
-#define SW_VER_MINOR    22U     // software version 0-99
+#define SW_VER_MINOR    23U     // software version 0-99
      
 #define STARTUP_TIME    3000U   // ms for startup splash and LED POST cycle
 #define GATE_OFF_MS     30      // Gate off time
@@ -1024,7 +1024,7 @@ int main()
                     goto_sys_menu(&mmi_state, &mmi_sysmenu_item);
                 }
                 if (read_enc_sw_button()) {  // next parameter (note val)
-                    encoder_set_data(sel_param_data, 0, 60);
+                    encoder_set_data(1, 0, 60);
                     mmi_state = m_sys_new_note;
                     clear_button_event(ALL_EV);
                 }
