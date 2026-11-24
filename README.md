@@ -2,6 +2,8 @@
 ![bb2 image](BASSBUDDY2.jpg)
 BassBuddy2 Sequencer is a dual 16-step sequencer for Eurorack. It is designed to be used with the Erica Synths Bassline DIY, but any Eurorack synth-voice can be used.
 
+The design consists of a main board and a RP2040 Prototype board (https://github.com/tkilla64/eurorack/tree/main/rp2040_proto).
+
 ### Inputs
 CLOCK input with 1 clock-pulse per step the advance is made on the low-to-high transition of the signal.  
 RESET input which resets the current pattern to step 1 at the low-to-high transition. RESET input can be reconfigured to a Clock for Track2 sequencer.
